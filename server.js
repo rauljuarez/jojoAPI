@@ -9,6 +9,9 @@ var app        = express();
 // configure app
 app.use(bodyParser());
 
+//Template engine
+app.set('view engine', 'ejs'); 
+
 var port     = process.env.PORT || 8080; // set our port
 
 var mongoose   = require('mongoose');
@@ -73,9 +76,21 @@ router.route('/searchs/:user')
 			if (err)
 				res.send(err);
 			res.json(search);
+			//alert(res.json(search));
 		});
 	})
 
+
+// Out of the API, this is not Good now, but, we show the list of searches by User logged, now hardcoded.
+// ----------------------------------------------------
+app.get('/profile', function(req, res) {
+	Search.find({ user : "rauljuarez@gmail.com"}, function ( err, searchs, count ){ //We Find on the DB and then we render the content
+	    res.render( 'lists.ejs', {
+		  searchs : searchs,
+		  user: "rauljuarez@gmail.com"
+	    });
+    });
+});
 
 
 

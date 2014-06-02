@@ -1,0 +1,55 @@
+
+<!doctype html>
+<html>
+<head>
+	<title>Welcomne to your Profile searches.</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	
+</head>
+<body>
+<div class="container">
+
+
+	<div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Logout</a></li>
+        </ul>
+        <h3 class="text-muted">JOJOLEJO</h3>
+      </div>
+
+
+
+
+<div class="page-header">
+   <h1>All Searchs</h1>
+</div>
+
+
+<div class="row">
+        <div class="col-sm-8">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Search Info</h3>
+            </div>
+            <div class="panel-body">
+             <% searchs.forEach( function( search ){ %>
+  <p><strong>Search:</strong> <%= search.searchTerm %>
+	<br />
+	<strong>On:</strong> <%= search.dateCreated %>
+	<br />
+	<strong>Site:</strong> <%= search.site %>
+</p>
+
+<% }); %>
+            </div>
+          </div>
+          
+          </div>
+        </div><!-- /.col-sm-4 -->
+      </div>
+
+
+</div>
+</body>
+</html>
